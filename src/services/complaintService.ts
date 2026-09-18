@@ -6,108 +6,188 @@ import type {
   PriorityLevel,
   Team,
 } from '@/types/complaint';
-import { mockComplaints, mockTeams } from '@/data/mockComplaints';
 
-/**
- * Service layer for complaint management.
- * Currently uses in-memory mock data.
- * Replace the internal storage and methods with real API calls
- * (e.g., Supabase or a FastAPI backend) when ready.
- */
+import { supabase } from '@/lib/supabase';
+import { mockTeams } from '@/data/mockComplaints';
 
-let complaintsStore: Complaint[] = [...mockComplaints];
-const teamsStore: Team[] = [...mockTeams];
+type SupabaseComplaintRow = {
+  id: string;
+  title: string;
+  description: string;
+  category: ComplaintCategory;
+  location: string;
+  latitude: number | null;
+  longitude: number | null;
+  status: ComplaintStatus;
+  priority: PriorityLevel;
+  assigned_team: string | null;
+  citizen_name: string | null;
+  citizen_email: string | null;
+  created_at: string;
+  updated_at: string;
+};
 
-function generateId(): string {
-  const year = new Date().getFullYear();
-  const num = String(complaintsStore.length + 1).padStart(3, '0');
-  return `CIV-${year}-${num}`;
-}
-
-function inferPriority(category: ComplaintCategory): PriorityLevel {
-  const map: Record<ComplaintCategory, PriorityLevel> = {
-    waterlogging: 'critical',
-    pothole: 'high',
-    road_damage: 'high',
-    garbage: 'medium',
-    streetlight: 'low',
-    other: 'low',
+function mapRowToComplaint(row: SupabaseComplaintRow): Complaint {
+  return {
+    id: row.id,
+    title: row.title,
+    description: row.description,
+    category: row.category,
+    location: row.location,
+    lat: row.latitude ?? 12.9716,
+    lng: row.longitude ?? 77.5946,
+    status: row.status,
+    priority: row.priority,
+    assignedTeam: row.assigned_team ?? undefined,
+    reporterName: row.citizen_name ?? 'Anonymous Citizen',
+    reporterContact: row.citizen_email ?? '',
+    createdAt: row.created_at,
+    updatedAt: row.updated_at,
   };
-  return map[category];
 }
 
-function delay(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+function handleSupabaseError(
+  error: { message: string } | null,
+  action: string
+): void {
+  if (error) {
+    console.error(`Supabase ${action} error:`, error.message);
+    throw new Error(error.message);
+  }
 }
 
 export const complaintService = {
   async getAll(): Promise<Complaint[]> {
-    await delay(300);
-    return [...complaintsStore].sort(
-      (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    const { data, error } = await supabase
+      .from('complaints')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    handleSupabaseError(error, 'fetch');
+
+    return (data ?? []).map((row) =>
+      mapRowToComplaint(row as SupabaseComplaintRow)
     );
   },
 
   async getById(id: string): Promise<Complaint | undefined> {
-    await delay(200);
-    return complaintsStore.find((c) => c.id === id);
+    const { data, error } = await supabase
+      .from('complaints')
+      .select('*')
+      .eq('id', id)
+      .maybeSingle();
+
+    handleSupabaseError(error, 'getById');
+
+    if (!data) {
+      return undefined;
+    }
+
+    return mapRowToComplaint(data as SupabaseComplaintRow);
   },
 
   async create(input: ComplaintInput): Promise<Complaint> {
-    await delay(600);
     const now = new Date().toISOString();
-    const complaint: Complaint = {
-      id: generateId(),
+
+    const payload = {
       title: input.title,
-      category: input.category,
       description: input.description,
-      status: 'submitted',
-      priority: inferPriority(input.category),
+      category: input.category,
       location: input.location,
-      lat: input.lat ?? 12.9716,
-      lng: input.lng ?? 77.5946,
-      imageUrl: input.imageUrl,
-      reporterName: input.reporterName,
-      reporterContact: input.reporterContact,
-      assignedTeam: undefined,
-      createdAt: now,
-      updatedAt: now,
+      latitude: input.lat ?? 12.9716,
+      longitude: input.lng ?? 77.5946,
+      status: 'submitted' as ComplaintStatus,
+      priority: inferPriority(input.category),
+      assigned_team: null,
+      citizen_name: input.reporterName,
+      citizen_email: input.reporterContact,
+      created_at: now,
+      updated_at: now,
     };
-    complaintsStore = [complaint, ...complaintsStore];
-    return complaint;
+
+    const { data, error } = await supabase
+      .from('complaints')
+      .insert(payload)
+      .select('*')
+      .single();
+
+    handleSupabaseError(error, 'create');
+
+    return mapRowToComplaint(data as SupabaseComplaintRow);
   },
 
-  async updateStatus(id: string, status: ComplaintStatus): Promise<Complaint | undefined> {
-    await delay(300);
-    const complaint = complaintsStore.find((c) => c.id === id);
-    if (!complaint) return undefined;
-    complaint.status = status;
-    complaint.updatedAt = new Date().toISOString();
-    return complaint;
+  async updateStatus(
+    id: string,
+    status: ComplaintStatus
+  ): Promise<Complaint | undefined> {
+    const { data, error } = await supabase
+      .from('complaints')
+      .update({
+        status,
+        updated_at: new Date().toISOString(),
+      })
+      .eq('id', id)
+      .select('*')
+      .maybeSingle();
+
+    handleSupabaseError(error, 'updateStatus');
+
+    if (!data) {
+      return undefined;
+    }
+
+    return mapRowToComplaint(data as SupabaseComplaintRow);
   },
 
-  async assignTeam(id: string, teamName: string): Promise<Complaint | undefined> {
-    await delay(300);
-    const complaint = complaintsStore.find((c) => c.id === id);
-    if (!complaint) return undefined;
-    complaint.assignedTeam = teamName;
-    complaint.status = 'assigned';
-    complaint.updatedAt = new Date().toISOString();
-    return complaint;
+  async assignTeam(
+    id: string,
+    teamName: string
+  ): Promise<Complaint | undefined> {
+    const { data, error } = await supabase
+      .from('complaints')
+      .update({
+        assigned_team: teamName,
+        status: 'assigned' as ComplaintStatus,
+        updated_at: new Date().toISOString(),
+      })
+      .eq('id', id)
+      .select('*')
+      .maybeSingle();
+
+    handleSupabaseError(error, 'assignTeam');
+
+    if (!data) {
+      return undefined;
+    }
+
+    return mapRowToComplaint(data as SupabaseComplaintRow);
   },
 
-  async updatePriority(id: string, priority: PriorityLevel): Promise<Complaint | undefined> {
-    await delay(300);
-    const complaint = complaintsStore.find((c) => c.id === id);
-    if (!complaint) return undefined;
-    complaint.priority = priority;
-    complaint.updatedAt = new Date().toISOString();
-    return complaint;
+  async updatePriority(
+    id: string,
+    priority: PriorityLevel
+  ): Promise<Complaint | undefined> {
+    const { data, error } = await supabase
+      .from('complaints')
+      .update({
+        priority,
+        updated_at: new Date().toISOString(),
+      })
+      .eq('id', id)
+      .select('*')
+      .maybeSingle();
+
+    handleSupabaseError(error, 'updatePriority');
+
+    if (!data) {
+      return undefined;
+    }
+
+    return mapRowToComplaint(data as SupabaseComplaintRow);
   },
 
   async getTeams(): Promise<Team[]> {
-    await delay(200);
-    return [...teamsStore];
+    return [...mockTeams];
   },
 
   async getStats(): Promise<{
@@ -116,16 +196,36 @@ export const complaintService = {
     highPriority: number;
     resolved: number;
   }> {
-    await delay(200);
+    const complaints = await this.getAll();
+
     return {
-      total: complaintsStore.length,
-      pending: complaintsStore.filter(
-        (c) => c.status === 'submitted' || c.status === 'under_review'
+      total: complaints.length,
+      pending: complaints.filter(
+        (complaint) =>
+          complaint.status === 'submitted' ||
+          complaint.status === 'under_review'
       ).length,
-      highPriority: complaintsStore.filter(
-        (c) => c.priority === 'high' || c.priority === 'critical'
+      highPriority: complaints.filter(
+        (complaint) =>
+          complaint.priority === 'high' ||
+          complaint.priority === 'critical'
       ).length,
-      resolved: complaintsStore.filter((c) => c.status === 'resolved').length,
+      resolved: complaints.filter(
+        (complaint) => complaint.status === 'resolved'
+      ).length,
     };
   },
 };
+
+function inferPriority(category: ComplaintCategory): PriorityLevel {
+  const priorityMap: Record<ComplaintCategory, PriorityLevel> = {
+    waterlogging: 'critical',
+    pothole: 'high',
+    road_damage: 'high',
+    garbage: 'medium',
+    streetlight: 'low',
+    other: 'low',
+  };
+
+  return priorityMap[category];
+}

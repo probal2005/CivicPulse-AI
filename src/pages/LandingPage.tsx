@@ -1,281 +1,348 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import {
-  Activity,
-  MapPin,
-  Upload,
-  Brain,
-  BarChart3,
-  Shield,
   ArrowRight,
-  Users,
-  FileText,
-  Eye,
   CheckCircle2,
-  Zap,
-  Github,
-  Linkedin,
-} from 'lucide-react';
-import { Button } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
+  MapPin,
+  MessageSquarePlus,
+  ShieldCheck,
+  Sparkles,
+  Users,
+  Activity,
+  Leaf,
+  BarChart3,
+} from "lucide-react";
 
 const features = [
   {
-    icon: <Upload className="w-6 h-6" />,
-    title: 'Easy Issue Reporting',
-    description: 'Citizens can report civic problems in seconds with photos, location, and descriptions — no technical knowledge needed.',
+    title: "Easy Reporting",
+    description: "Report civic issues in seconds with location and details.",
+    icon: MessageSquarePlus,
+    color: "from-blue-500 to-cyan-500",
   },
   {
-    icon: <Brain className="w-6 h-6" />,
-    title: 'AI-Powered Prioritization',
-    description: 'Simulated AI analysis categorizes and prioritizes reports so urgent issues reach the right teams faster. (Demo — no real model connected yet.)',
+    title: "Live Tracking",
+    description: "Track your issue from submission to resolution.",
+    icon: MapPin,
+    color: "from-emerald-500 to-teal-500",
   },
   {
-    icon: <BarChart3 className="w-6 h-6" />,
-    title: 'Admin Command Center',
-    description: 'A professional dashboard for administrators to search, filter, assign teams, and track every report from submission to resolution.',
+    title: "AI Insights",
+    description: "AI helps identify patterns and prioritize important issues.",
+    icon: Sparkles,
+    color: "from-purple-500 to-indigo-500",
   },
   {
-    icon: <MapPin className="w-6 h-6" />,
-    title: 'Interactive Civic Map',
-    description: 'See every reported issue plotted on an interactive map with category-coded markers and location details.',
+    title: "Community Driven",
+    description: "Citizens and response teams work together for better cities.",
+    icon: Users,
+    color: "from-orange-400 to-amber-500",
   },
   {
-    icon: <Shield className="w-6 h-6" />,
-    title: 'Transparent Tracking',
-    description: 'Every report has a unique ID and visible status trail — Submitted, Under Review, Assigned, Resolved — so citizens always know where things stand.',
+    title: "Safe & Transparent",
+    description: "Track progress with a clear and accountable process.",
+    icon: ShieldCheck,
+    color: "from-pink-500 to-rose-500",
   },
   {
-    icon: <Zap className="w-6 h-6" />,
-    title: 'Built for Scale',
-    description: 'Designed with a clean service layer that can connect to a real backend and ML model when ready, without changing the interface.',
+    title: "Sustainable Future",
+    description: "Build cleaner, safer and more livable communities.",
+    icon: Leaf,
+    color: "from-cyan-500 to-blue-500",
   },
-];
-
-const howItWorks = [
-  {
-    step: '01',
-    icon: <FileText className="w-7 h-7" />,
-    title: 'Report a Problem',
-    description: 'A citizen spots a civic issue — pothole, garbage, waterlogging — and submits a report with a photo and location.',
-  },
-  {
-    step: '02',
-    icon: <Eye className="w-7 h-7" />,
-    title: 'Review & Prioritize',
-    description: 'The system categorizes the report and assigns a priority level. Admins review and verify the submission.',
-  },
-  {
-    step: '03',
-    icon: <Users className="w-7 h-7" />,
-    title: 'Assign to Team',
-    description: 'Administrators assign the report to the appropriate response team based on category and urgency.',
-  },
-  {
-    step: '04',
-    icon: <CheckCircle2 className="w-7 h-7" />,
-    title: 'Resolve & Confirm',
-    description: 'The field team fixes the issue, updates the status to Resolved, and the citizen is notified.',
-  },
-];
-
-const teamMembers = [
-  { name: 'Team Member 1', role: 'Project Lead & Full-Stack Developer', bio: 'Leads architecture and oversees the overall project direction and integration.' },
-  { name: 'Team Member 2', role: 'Frontend Developer', bio: 'Builds the citizen-facing interface and ensures a smooth, responsive user experience.' },
-  { name: 'Team Member 3', role: 'Backend & Data Engineer', bio: 'Designs the service layer and data models for future backend and database integration.' },
-  { name: 'Team Member 4', role: 'AI/ML Researcher', bio: 'Works on the image analysis pipeline and plans the FastAPI prediction endpoint.' },
-  { name: 'Team Member 5', role: 'UI/UX Designer', bio: 'Creates the visual design system, wireframes, and ensures accessibility across all pages.' },
 ];
 
 export function LandingPage() {
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="relative bg-navy-950 overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-500 rounded-full blur-[120px]" />
-          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-teal-700 rounded-full blur-[100px]" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-slide-up">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 mb-6">
-                <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
-                <span className="text-teal-300 text-sm font-medium">University Hackathon Demo Project</span>
-              </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
-                Smarter Cities Start with <span className="text-teal-400">Citizen Voices</span>
-              </h1>
-              <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-xl">
-                CivicPulse AI is an AI-powered civic problem reporting and response platform. Citizens report issues like potholes, garbage overflow, and broken streetlights — administrators track, prioritize, and resolve them efficiently.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Button to="/report" size="lg">
-                  Report an Issue
-                  <ArrowRight className="w-5 h-5" />
-                </Button>
-                <Button to="/dashboard" size="lg" variant="outline" className="border-slate-600 text-white hover:bg-white/10 hover:border-slate-500">
-                  Open Dashboard
-                </Button>
-              </div>
-              <div className="mt-10 flex items-center gap-8">
-                <div>
-                  <p className="text-3xl font-bold text-teal-400">10+</p>
-                  <p className="text-sm text-slate-400">Demo Reports</p>
-                </div>
-                <div className="w-px h-10 bg-slate-700" />
-                <div>
-                  <p className="text-3xl font-bold text-teal-400">6</p>
-                  <p className="text-sm text-slate-400">Issue Categories</p>
-                </div>
-                <div className="w-px h-10 bg-slate-700" />
-                <div>
-                  <p className="text-3xl font-bold text-teal-400">5</p>
-                  <p className="text-sm text-slate-400">Response Teams</p>
-                </div>
-              </div>
+    <div className="min-h-screen overflow-hidden bg-slate-50 text-slate-900">
+      {/* Hero */}
+      <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#071d35] via-[#0b3046] to-[#073c45]">
+        <div className="absolute -left-32 top-20 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
+        <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-3xl" />
+
+        <div className="relative mx-auto grid max-w-[1500px] items-center gap-12 px-6 py-20 sm:px-10 lg:grid-cols-2 lg:px-16 lg:py-28">
+          <div className="max-w-2xl">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-semibold text-cyan-200">
+              <Sparkles size={16} />
+              AI-Powered Civic Platform
             </div>
 
-            <div className="relative hidden lg:block animate-fade-in">
-              <div className="bg-navy-900/60 backdrop-blur rounded-2xl border border-navy-700/50 p-6 shadow-2xl">
-                <div className="flex items-center justify-between mb-5">
-                  <div className="flex items-center gap-2">
-                    <Activity className="w-5 h-5 text-teal-400" />
-                    <span className="text-white font-semibold text-sm">Live Command Center</span>
+            <h1 className="text-5xl font-black leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
+              Together for a{" "}
+              <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-emerald-300 bg-clip-text text-transparent">
+                Cleaner, Safer
+              </span>{" "}
+              & Smarter City
+            </h1>
+
+            <p className="mt-7 max-w-xl text-lg leading-8 text-slate-300">
+              CivicPulse AI helps citizens report civic issues, track progress
+              and create real change. Powered by AI, built for better
+              communities.
+            </p>
+
+            <div className="mt-9 flex flex-wrap gap-4">
+              <Link
+                to="/report"
+                className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-400 to-emerald-400 px-6 py-4 font-bold text-slate-950 shadow-xl shadow-cyan-950/30 transition hover:-translate-y-1 hover:shadow-cyan-400/20"
+              >
+                Report an Issue
+                <ArrowRight size={19} />
+              </Link>
+
+              <Link
+                to="/map"
+                className="inline-flex items-center gap-3 rounded-2xl border border-white/40 px-6 py-4 font-bold text-white transition hover:bg-white/10"
+              >
+                <MapPin size={19} />
+                Explore Map
+              </Link>
+            </div>
+
+            <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-200">
+              <span className="flex items-center gap-2">
+                <CheckCircle2 className="text-emerald-400" size={18} />
+                Real-time tracking
+              </span>
+
+              <span className="flex items-center gap-2">
+                <CheckCircle2 className="text-emerald-400" size={18} />
+                AI-powered insights
+              </span>
+
+              <span className="flex items-center gap-2">
+                <CheckCircle2 className="text-emerald-400" size={18} />
+                Community driven
+              </span>
+            </div>
+          </div>
+
+          {/* Dashboard Mockup */}
+          <div className="relative mx-auto w-full max-w-xl">
+            <div className="absolute inset-0 rounded-[3rem] bg-cyan-400/20 blur-3xl" />
+
+            <div className="relative rounded-[2rem] border border-white/20 bg-white/10 p-4 shadow-2xl backdrop-blur-xl">
+              <div className="rounded-[1.5rem] bg-slate-950 p-5">
+                <div className="mb-6 flex items-center justify-between">
+                  <div>
+                    <p className="text-xs text-slate-400">CivicPulse AI</p>
+                    <h3 className="text-xl font-bold text-white">
+                      Live Command Center
+                    </h3>
                   </div>
-                  <span className="text-xs text-slate-400">Demo Preview</span>
+
+                  <div className="rounded-xl bg-emerald-400/15 p-3 text-emerald-300">
+                    <Activity size={24} />
+                  </div>
                 </div>
+
+                <div className="mb-4 rounded-2xl bg-gradient-to-br from-blue-500/30 to-cyan-500/10 p-5">
+                  <div className="mb-5 flex items-center justify-between">
+                    <span className="text-sm text-slate-300">
+                      Active civic issues
+                    </span>
+                    <span className="rounded-full bg-emerald-400/20 px-3 py-1 text-xs font-bold text-emerald-300">
+                      Live
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-3">
+                    <div className="rounded-xl bg-white/10 p-3">
+                      <p className="text-2xl font-black text-white">24</p>
+                      <p className="text-xs text-slate-400">Total</p>
+                    </div>
+
+                    <div className="rounded-xl bg-white/10 p-3">
+                      <p className="text-2xl font-black text-amber-300">08</p>
+                      <p className="text-xs text-slate-400">Pending</p>
+                    </div>
+
+                    <div className="rounded-xl bg-white/10 p-3">
+                      <p className="text-2xl font-black text-emerald-300">16</p>
+                      <p className="text-xs text-slate-400">Resolved</p>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="space-y-3">
                   {[
-                    { cat: 'Pothole', loc: 'MG Road Junction', priority: 'High', color: 'bg-orange-400' },
-                    { cat: 'Waterlogging', loc: 'Silk Board Flyover', priority: 'Critical', color: 'bg-red-500' },
-                    { cat: 'Garbage', loc: 'Indiranagar 2nd Stage', priority: 'Medium', color: 'bg-amber-400' },
-                  ].map((item, i) => (
+                    ["Pothole on Main Road", "High Priority", "bg-orange-400"],
+                    ["Water Leakage", "Critical", "bg-red-400"],
+                    ["Garbage Overflow", "Medium", "bg-yellow-400"],
+                  ].map(([title, priority, color]) => (
                     <div
-                      key={i}
-                      className="flex items-center gap-3 p-3 rounded-xl bg-navy-800/50 border border-navy-700/30 hover:border-teal-500/30 transition-colors"
+                      key={title}
+                      className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-4"
                     >
-                      <div className={`w-2.5 h-2.5 rounded-full ${item.color}`} />
-                      <div className="flex-1 min-w-0">
-                        <p className="text-white text-sm font-medium truncate">{item.cat}</p>
-                        <p className="text-slate-400 text-xs truncate">{item.loc}</p>
+                      <div className="flex items-center gap-3">
+                        <span className={`h-3 w-3 rounded-full ${color}`} />
+                        <div>
+                          <p className="text-sm font-semibold text-white">
+                            {title}
+                          </p>
+                          <p className="text-xs text-slate-400">
+                            Civic issue report
+                          </p>
+                        </div>
                       </div>
-                      <span className="text-xs font-semibold text-slate-300 px-2 py-0.5 rounded-md bg-navy-700/50">{item.priority}</span>
+
+                      <span className="rounded-lg bg-white/10 px-2 py-1 text-xs text-slate-300">
+                        {priority}
+                      </span>
                     </div>
                   ))}
                 </div>
-                <div className="mt-5 grid grid-cols-3 gap-3">
-                  <div className="text-center p-3 rounded-xl bg-navy-800/50">
-                    <p className="text-2xl font-bold text-white">10</p>
-                    <p className="text-xs text-slate-400 mt-0.5">Total</p>
-                  </div>
-                  <div className="text-center p-3 rounded-xl bg-navy-800/50">
-                    <p className="text-2xl font-bold text-amber-400">5</p>
-                    <p className="text-xs text-slate-400 mt-0.5">Pending</p>
-                  </div>
-                  <div className="text-center p-3 rounded-xl bg-navy-800/50">
-                    <p className="text-2xl font-bold text-green-400">2</p>
-                    <p className="text-xs text-slate-400 mt-0.5">Resolved</p>
-                  </div>
-                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900">How CivicPulse AI Works</h2>
-            <p className="mt-4 text-slate-500 text-lg">From a citizen spotting a problem to a team fixing it — here's the full journey.</p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {howItWorks.map((step) => (
-              <Card key={step.step} hover className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-teal-50 text-teal-600">{step.icon}</div>
-                  <span className="text-2xl font-bold text-slate-200">{step.step}</span>
-                </div>
-                <h3 className="text-lg font-semibold text-navy-900 mb-2">{step.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">{step.description}</p>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900">Platform Features</h2>
-            <p className="mt-4 text-slate-500 text-lg">Everything needed to report, track, and resolve civic issues in one place.</p>
+      <section className="mx-auto max-w-[1500px] px-6 py-20 sm:px-10 lg:px-16">
+        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.5fr]">
+          <div>
+            <span className="inline-flex rounded-full bg-blue-100 px-4 py-2 text-sm font-bold text-blue-700">
+              Why Choose CivicPulse AI?
+            </span>
+
+            <h2 className="mt-5 text-4xl font-black leading-tight text-slate-900 sm:text-5xl">
+              Smart Technology
+              <span className="block bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                for Real Change
+              </span>
+            </h2>
+
+            <p className="mt-6 max-w-md text-lg leading-8 text-slate-600">
+              We combine AI technology with community participation to make
+              civic issue reporting faster, smarter and more effective.
+            </p>
+
+            <Link
+              to="/dashboard"
+              className="mt-7 inline-flex items-center gap-2 rounded-xl border-2 border-blue-500 px-5 py-3 font-bold text-blue-600 transition hover:bg-blue-600 hover:text-white"
+            >
+              Explore Platform
+              <ArrowRight size={18} />
+            </Link>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature) => (
-              <Card key={feature.title} hover className="p-6">
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-navy-900 text-teal-400 mb-4">{feature.icon}</div>
-                <h3 className="text-lg font-semibold text-navy-900 mb-2">{feature.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">{feature.description}</p>
-              </Card>
-            ))}
+
+          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            {features.map((feature) => {
+              const Icon = feature.icon;
+
+              return (
+                <div
+                  key={feature.title}
+                  className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-blue-200 hover:shadow-xl"
+                >
+                  <div
+                    className={`mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.color} text-white shadow-lg`}
+                  >
+                    <Icon size={25} />
+                  </div>
+
+                  <h3 className="text-lg font-bold text-slate-900">
+                    {feature.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-6 text-slate-500">
+                    {feature.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-navy-950 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-teal-500 rounded-full blur-[120px]" />
-        </div>
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">Ready to Make Your City Better?</h2>
-          <p className="mt-4 text-slate-300 text-lg max-w-2xl mx-auto">
-            Report a civic issue you've noticed, or explore the admin dashboard to see how reports are managed end-to-end.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button to="/report" size="lg">
-              Report an Issue
-              <ArrowRight className="w-5 h-5" />
-            </Button>
-            <Button to="/admin" size="lg" variant="outline" className="border-slate-600 text-white hover:bg-white/10 hover:border-slate-500">
-              Explore Admin Center
-            </Button>
+      {/* Impact */}
+      <section className="mx-6 mb-20 overflow-hidden rounded-[2rem] bg-gradient-to-r from-[#092743] via-[#07505c] to-[#063b45] sm:mx-10 lg:mx-16">
+        <div className="grid gap-10 px-7 py-10 sm:px-12 lg:grid-cols-[1.1fr_2fr] lg:items-center lg:px-16">
+          <div>
+            <p className="font-semibold text-cyan-300">Our Impact</p>
+
+            <h2 className="mt-3 text-3xl font-black text-white sm:text-4xl">
+              Real People.
+              <br />
+              Real Issues.
+              <br />
+              Real Change.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
+            {[
+              ["10+", "Total Reports", BarChart3],
+              ["6", "Issue Categories", MapPin],
+              ["5", "Response Teams", Users],
+              ["92%", "Resolution Rate", CheckCircle2],
+            ].map(([value, label, Icon]) => {
+              const StatIcon = Icon as typeof BarChart3;
+
+              return (
+                <div key={label as string} className="text-center">
+                  <StatIcon className="mx-auto mb-3 text-cyan-300" size={28} />
+                  <p className="text-3xl font-black text-white">
+                    {value as string}
+                  </p>
+                  <p className="mt-1 text-sm text-slate-300">
+                    {label as string}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900">Meet the Team</h2>
-            <p className="mt-4 text-slate-500 text-lg">Five passionate students building civic tech for a better tomorrow.</p>
+      {/* Closing CTA */}
+      <section className="px-6 pb-20 text-center">
+        <p className="font-semibold text-blue-600">
+          A Cleaner City • A Safer Tomorrow • A Stronger Community
+        </p>
+
+        <h2 className="mt-4 text-3xl font-black text-slate-900 sm:text-4xl">
+          Your voice can build a better tomorrow.
+        </h2>
+
+        <Link
+          to="/report"
+          className="mt-7 inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 px-7 py-4 font-bold text-white shadow-lg shadow-blue-200 transition hover:-translate-y-1"
+        >
+          Join the Movement
+          <ArrowRight size={19} />
+        </Link>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#071d35] px-6 py-8 text-white sm:px-10 lg:px-16">
+        <div className="mx-auto flex max-w-[1500px] flex-col gap-5 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h3 className="text-xl font-black">CivicPulse AI</h3>
+            <p className="mt-1 text-sm text-slate-400">
+              Smarter Cities • Stronger Communities
+            </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {teamMembers.map((member) => (
-              <Card key={member.name} hover className="p-6 text-center">
-                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-navy-800 to-navy-950 flex items-center justify-center">
-                  <Users className="w-9 h-9 text-teal-400" />
-                </div>
-                <h3 className="font-semibold text-navy-900 text-sm">{member.name}</h3>
-                <p className="text-xs text-teal-600 font-medium mt-1">{member.role}</p>
-                <p className="text-xs text-slate-500 mt-3 leading-relaxed">{member.bio}</p>
-                <div className="flex justify-center gap-3 mt-4">
-                  <a href="#" className="text-slate-400 hover:text-teal-600 transition-colors" aria-label="GitHub"><Github className="w-4 h-4" /></a>
-                  <a href="#" className="text-slate-400 hover:text-teal-600 transition-colors" aria-label="LinkedIn"><Linkedin className="w-4 h-4" /></a>
-                </div>
-              </Card>
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link to="/team" className="inline-flex items-center gap-1.5 text-teal-600 font-semibold text-sm hover:gap-2.5 transition-all">
-              View full team page <ArrowRight className="w-4 h-4" />
+
+          <div className="flex flex-wrap gap-5 text-sm text-slate-300">
+            <Link to="/" className="hover:text-cyan-300">
+              Home
+            </Link>
+            <Link to="/dashboard" className="hover:text-cyan-300">
+              Dashboard
+            </Link>
+            <Link to="/report" className="hover:text-cyan-300">
+              Report Issue
+            </Link>
+            <Link to="/map" className="hover:text-cyan-300">
+              Issue Map
+            </Link>
+            <Link to="/team" className="hover:text-cyan-300">
+              Our Team
             </Link>
           </div>
         </div>
-      </section>
+      </footer>
     </div>
   );
 }

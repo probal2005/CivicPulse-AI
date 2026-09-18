@@ -1,0 +1,1179 @@
+/* =========================================================
+   CIVICPULSE AI
+   GLOBAL THEME ENGINE
+========================================================= */
+
+
+/* =========================================================
+   DEFAULT DESIGN TOKENS
+========================================================= */
+
+:root {
+  --cp-bg: #f8fafc;
+  --cp-surface: #ffffff;
+  --cp-surface-raised: #ffffff;
+  --cp-surface-soft: #f1f5f9;
+  --cp-surface-muted: #e2e8f0;
+
+  --cp-text: #0f172a;
+  --cp-text-secondary: #334155;
+  --cp-text-muted: #64748b;
+  --cp-text-faint: #94a3b8;
+
+  --cp-border: #e2e8f0;
+  --cp-border-strong: #cbd5e1;
+
+  --cp-primary: #2563eb;
+  --cp-primary-hover: #1d4ed8;
+  --cp-secondary: #06b6d4;
+
+  --cp-success: #10b981;
+  --cp-warning: #f59e0b;
+  --cp-danger: #ef4444;
+
+  --cp-header: rgba(255, 255, 255, 0.94);
+  --cp-overlay: rgba(15, 23, 42, 0.08);
+
+  --cp-glow: rgba(37, 99, 235, 0.2);
+
+  --cp-input-bg: #ffffff;
+  --cp-input-text: #0f172a;
+  --cp-placeholder: #94a3b8;
+
+  --cp-card-shadow:
+    0 15px 45px rgba(15, 23, 42, 0.08);
+
+  --cp-transition:
+    background-color 300ms ease,
+    border-color 300ms ease,
+    color 250ms ease,
+    box-shadow 300ms ease;
+}
+
+
+/* =========================================================
+   CIVIC LIGHT
+========================================================= */
+
+.theme-civic {
+  --cp-bg: #f8fafc;
+
+  --cp-surface: #ffffff;
+  --cp-surface-raised: #ffffff;
+  --cp-surface-soft: #f1f5f9;
+  --cp-surface-muted: #e2e8f0;
+
+  --cp-text: #0f172a;
+  --cp-text-secondary: #334155;
+  --cp-text-muted: #64748b;
+  --cp-text-faint: #94a3b8;
+
+  --cp-border: #e2e8f0;
+  --cp-border-strong: #cbd5e1;
+
+  --cp-primary: #2563eb;
+  --cp-primary-hover: #1d4ed8;
+  --cp-secondary: #06b6d4;
+
+  --cp-success: #059669;
+  --cp-warning: #d97706;
+  --cp-danger: #dc2626;
+
+  --cp-header: rgba(255, 255, 255, 0.94);
+  --cp-overlay: rgba(15, 23, 42, 0.06);
+
+  --cp-glow: rgba(37, 99, 235, 0.2);
+
+  --cp-input-bg: #ffffff;
+  --cp-input-text: #0f172a;
+  --cp-placeholder: #94a3b8;
+}
+
+
+/* =========================================================
+   MIDNIGHT
+========================================================= */
+
+.theme-midnight {
+  --cp-bg: #020617;
+
+  --cp-surface: #0b1220;
+  --cp-surface-raised: #111c2f;
+  --cp-surface-soft: #172235;
+  --cp-surface-muted: #243247;
+
+  --cp-text: #f8fafc;
+  --cp-text-secondary: #dbeafe;
+  --cp-text-muted: #a7b7cc;
+  --cp-text-faint: #8192aa;
+
+  --cp-border: #26364d;
+  --cp-border-strong: #39506d;
+
+  --cp-primary: #38bdf8;
+  --cp-primary-hover: #0ea5e9;
+  --cp-secondary: #22d3ee;
+
+  --cp-success: #34d399;
+  --cp-warning: #fbbf24;
+  --cp-danger: #fb7185;
+
+  --cp-header: rgba(2, 6, 23, 0.94);
+  --cp-overlay: rgba(255, 255, 255, 0.06);
+
+  --cp-glow: rgba(56, 189, 248, 0.22);
+
+  --cp-input-bg: #0b1220;
+  --cp-input-text: #f8fafc;
+  --cp-placeholder: #8192aa;
+
+  --cp-card-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+
+/* =========================================================
+   CRIMSON ALERT
+========================================================= */
+
+.theme-crimson {
+  --cp-bg: #070707;
+
+  --cp-surface: #101010;
+  --cp-surface-raised: #171717;
+  --cp-surface-soft: #202020;
+  --cp-surface-muted: #2d2d2d;
+
+  --cp-text: #fafafa;
+  --cp-text-secondary: #e4e4e7;
+  --cp-text-muted: #b4b4b8;
+  --cp-text-faint: #85858b;
+
+  --cp-border: #353535;
+  --cp-border-strong: #4a4a4a;
+
+  --cp-primary: #ef4444;
+  --cp-primary-hover: #dc2626;
+  --cp-secondary: #f97316;
+
+  --cp-success: #4ade80;
+  --cp-warning: #fbbf24;
+  --cp-danger: #f87171;
+
+  --cp-header: rgba(7, 7, 7, 0.95);
+  --cp-overlay: rgba(255, 255, 255, 0.05);
+
+  --cp-glow: rgba(239, 68, 68, 0.25);
+
+  --cp-input-bg: #101010;
+  --cp-input-text: #fafafa;
+  --cp-placeholder: #85858b;
+
+  --cp-card-shadow:
+    0 20px 65px rgba(0, 0, 0, 0.55);
+}
+
+
+/* =========================================================
+   NEON PULSE
+========================================================= */
+
+.theme-neon {
+  --cp-bg: #090014;
+
+  --cp-surface: #120a20;
+  --cp-surface-raised: #1b1030;
+  --cp-surface-soft: #261542;
+  --cp-surface-muted: #35205a;
+
+  --cp-text: #faf5ff;
+  --cp-text-secondary: #ede9fe;
+  --cp-text-muted: #c4b5fd;
+  --cp-text-faint: #9f8bc4;
+
+  --cp-border: #422466;
+  --cp-border-strong: #603394;
+
+  --cp-primary: #a855f7;
+  --cp-primary-hover: #9333ea;
+  --cp-secondary: #ec4899;
+
+  --cp-success: #34d399;
+  --cp-warning: #facc15;
+  --cp-danger: #fb7185;
+
+  --cp-header: rgba(9, 0, 20, 0.95);
+  --cp-overlay: rgba(255, 255, 255, 0.05);
+
+  --cp-glow: rgba(168, 85, 247, 0.3);
+
+  --cp-input-bg: #120a20;
+  --cp-input-text: #faf5ff;
+  --cp-placeholder: #9f8bc4;
+
+  --cp-card-shadow:
+    0 20px 70px rgba(76, 29, 149, 0.28);
+}
+
+
+/* =========================================================
+   CYBER CIVIC
+========================================================= */
+
+.theme-cyber {
+  --cp-bg: #020807;
+
+  --cp-surface: #07120f;
+  --cp-surface-raised: #0b1c17;
+  --cp-surface-soft: #10271f;
+  --cp-surface-muted: #163b2f;
+
+  --cp-text: #ecfdf5;
+  --cp-text-secondary: #d1fae5;
+  --cp-text-muted: #a7f3d0;
+  --cp-text-faint: #6ee7b7;
+
+  --cp-border: #164e3b;
+  --cp-border-strong: #24785a;
+
+  --cp-primary: #10b981;
+  --cp-primary-hover: #059669;
+  --cp-secondary: #14b8a6;
+
+  --cp-success: #4ade80;
+  --cp-warning: #facc15;
+  --cp-danger: #fb7185;
+
+  --cp-header: rgba(2, 8, 7, 0.95);
+  --cp-overlay: rgba(255, 255, 255, 0.04);
+
+  --cp-glow: rgba(16, 185, 129, 0.25);
+
+  --cp-input-bg: #07120f;
+  --cp-input-text: #ecfdf5;
+  --cp-placeholder: #6ee7b7;
+
+  --cp-card-shadow:
+    0 20px 70px rgba(6, 78, 59, 0.3);
+}
+
+
+/* =========================================================
+   AURORA
+========================================================= */
+
+.theme-aurora {
+  --cp-bg: #07111f;
+
+  --cp-surface: #0c192c;
+  --cp-surface-raised: #10233b;
+  --cp-surface-soft: #17314d;
+  --cp-surface-muted: #214361;
+
+  --cp-text: #f0fdfa;
+  --cp-text-secondary: #ccfbf1;
+  --cp-text-muted: #99f6e4;
+  --cp-text-faint: #67d8cb;
+
+  --cp-border: #254663;
+  --cp-border-strong: #356584;
+
+  --cp-primary: #22d3ee;
+  --cp-primary-hover: #06b6d4;
+  --cp-secondary: #a855f7;
+
+  --cp-success: #34d399;
+  --cp-warning: #facc15;
+  --cp-danger: #fb7185;
+
+  --cp-header: rgba(7, 17, 31, 0.94);
+  --cp-overlay: rgba(255, 255, 255, 0.05);
+
+  --cp-glow: rgba(34, 211, 238, 0.25);
+
+  --cp-input-bg: #0c192c;
+  --cp-input-text: #f0fdfa;
+  --cp-placeholder: #67d8cb;
+
+  --cp-card-shadow:
+    0 20px 70px rgba(14, 116, 144, 0.25);
+}
+
+
+/* =========================================================
+   HIGH CONTRAST
+========================================================= */
+
+.theme-contrast {
+  --cp-bg: #000000;
+
+  --cp-surface: #000000;
+  --cp-surface-raised: #080808;
+  --cp-surface-soft: #151515;
+  --cp-surface-muted: #242424;
+
+  --cp-text: #ffffff;
+  --cp-text-secondary: #ffffff;
+  --cp-text-muted: #f0f0f0;
+  --cp-text-faint: #d6d6d6;
+
+  --cp-border: #ffffff;
+  --cp-border-strong: #ffffff;
+
+  --cp-primary: #ffff00;
+  --cp-primary-hover: #e6e600;
+  --cp-secondary: #00ffff;
+
+  --cp-success: #00ff66;
+  --cp-warning: #ffff00;
+  --cp-danger: #ff4444;
+
+  --cp-header: rgba(0, 0, 0, 0.98);
+  --cp-overlay: rgba(255, 255, 255, 0.12);
+
+  --cp-glow: rgba(255, 255, 0, 0.25);
+
+  --cp-input-bg: #000000;
+  --cp-input-text: #ffffff;
+  --cp-placeholder: #d6d6d6;
+
+  --cp-card-shadow:
+    0 0 0 1px #ffffff;
+}
+
+
+/* =========================================================
+   GLOBAL PAGE
+========================================================= */
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+html {
+  background: var(--cp-bg);
+  transition:
+    background-color 300ms ease;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      var(--cp-glow),
+      transparent 28%
+    ),
+    var(--cp-bg);
+
+  color: var(--cp-text);
+
+  transition:
+    background 350ms ease,
+    color 300ms ease;
+}
+
+
+/* =========================================================
+   GLOBAL TEXT SAFETY
+========================================================= */
+
+body {
+  color: var(--cp-text);
+}
+
+.theme-midnight body,
+.theme-crimson body,
+.theme-neon body,
+.theme-cyber body,
+.theme-aurora body,
+.theme-contrast body {
+  color: var(--cp-text);
+}
+
+
+/* =========================================================
+   TAILWIND TEXT COLOR RE-MAPPING
+   THIS FIXES THE INVISIBLE TEXT PROBLEM
+========================================================= */
+
+
+/* Slate 950 */
+
+.theme-midnight .text-slate-950,
+.theme-crimson .text-slate-950,
+.theme-neon .text-slate-950,
+.theme-cyber .text-slate-950,
+.theme-aurora .text-slate-950,
+.theme-contrast .text-slate-950 {
+  color: var(--cp-text) !important;
+}
+
+
+/* Slate 900 */
+
+.theme-midnight .text-slate-900,
+.theme-crimson .text-slate-900,
+.theme-neon .text-slate-900,
+.theme-cyber .text-slate-900,
+.theme-aurora .text-slate-900,
+.theme-contrast .text-slate-900 {
+  color: var(--cp-text) !important;
+}
+
+
+/* Slate 800 */
+
+.theme-midnight .text-slate-800,
+.theme-crimson .text-slate-800,
+.theme-neon .text-slate-800,
+.theme-cyber .text-slate-800,
+.theme-aurora .text-slate-800,
+.theme-contrast .text-slate-800 {
+  color: var(--cp-text) !important;
+}
+
+
+/* Slate 700 */
+
+.theme-midnight .text-slate-700,
+.theme-crimson .text-slate-700,
+.theme-neon .text-slate-700,
+.theme-cyber .text-slate-700,
+.theme-aurora .text-slate-700,
+.theme-contrast .text-slate-700 {
+  color: var(--cp-text-secondary) !important;
+}
+
+
+/* Slate 600 */
+
+.theme-midnight .text-slate-600,
+.theme-crimson .text-slate-600,
+.theme-neon .text-slate-600,
+.theme-cyber .text-slate-600,
+.theme-aurora .text-slate-600,
+.theme-contrast .text-slate-600 {
+  color: var(--cp-text-secondary) !important;
+}
+
+
+/* Slate 500 */
+
+.theme-midnight .text-slate-500,
+.theme-crimson .text-slate-500,
+.theme-neon .text-slate-500,
+.theme-cyber .text-slate-500,
+.theme-aurora .text-slate-500,
+.theme-contrast .text-slate-500 {
+  color: var(--cp-text-muted) !important;
+}
+
+
+/* Slate 400 */
+
+.theme-midnight .text-slate-400,
+.theme-crimson .text-slate-400,
+.theme-neon .text-slate-400,
+.theme-cyber .text-slate-400,
+.theme-aurora .text-slate-400,
+.theme-contrast .text-slate-400 {
+  color: var(--cp-text-faint) !important;
+}
+
+
+/* Slate 300 */
+
+.theme-midnight .text-slate-300,
+.theme-crimson .text-slate-300,
+.theme-neon .text-slate-300,
+.theme-cyber .text-slate-300,
+.theme-aurora .text-slate-300,
+.theme-contrast .text-slate-300 {
+  color: var(--cp-text-muted) !important;
+}
+
+
+/* =========================================================
+   GRAY TEXT
+========================================================= */
+
+.theme-midnight .text-gray-900,
+.theme-crimson .text-gray-900,
+.theme-neon .text-gray-900,
+.theme-cyber .text-gray-900,
+.theme-aurora .text-gray-900,
+.theme-contrast .text-gray-900 {
+  color: var(--cp-text) !important;
+}
+
+.theme-midnight .text-gray-800,
+.theme-crimson .text-gray-800,
+.theme-neon .text-gray-800,
+.theme-cyber .text-gray-800,
+.theme-aurora .text-gray-800,
+.theme-contrast .text-gray-800 {
+  color: var(--cp-text) !important;
+}
+
+.theme-midnight .text-gray-700,
+.theme-crimson .text-gray-700,
+.theme-neon .text-gray-700,
+.theme-cyber .text-gray-700,
+.theme-aurora .text-gray-700,
+.theme-contrast .text-gray-700 {
+  color: var(--cp-text-secondary) !important;
+}
+
+.theme-midnight .text-gray-600,
+.theme-crimson .text-gray-600,
+.theme-neon .text-gray-600,
+.theme-cyber .text-gray-600,
+.theme-aurora .text-gray-600,
+.theme-contrast .text-gray-600 {
+  color: var(--cp-text-secondary) !important;
+}
+
+.theme-midnight .text-gray-500,
+.theme-crimson .text-gray-500,
+.theme-neon .text-gray-500,
+.theme-cyber .text-gray-500,
+.theme-aurora .text-gray-500,
+.theme-contrast .text-gray-500 {
+  color: var(--cp-text-muted) !important;
+}
+
+.theme-midnight .text-gray-400,
+.theme-crimson .text-gray-400,
+.theme-neon .text-gray-400,
+.theme-cyber .text-gray-400,
+.theme-aurora .text-gray-400,
+.theme-contrast .text-gray-400 {
+  color: var(--cp-text-faint) !important;
+}
+
+
+/* =========================================================
+   WHITE BACKGROUNDS
+========================================================= */
+
+.theme-midnight .bg-white,
+.theme-crimson .bg-white,
+.theme-neon .bg-white,
+.theme-cyber .bg-white,
+.theme-aurora .bg-white,
+.theme-contrast .bg-white {
+  background-color: var(--cp-surface) !important;
+}
+
+
+/* =========================================================
+   SLATE BACKGROUNDS
+========================================================= */
+
+.theme-midnight .bg-slate-50,
+.theme-crimson .bg-slate-50,
+.theme-neon .bg-slate-50,
+.theme-cyber .bg-slate-50,
+.theme-aurora .bg-slate-50,
+.theme-contrast .bg-slate-50 {
+  background-color: var(--cp-bg) !important;
+}
+
+.theme-midnight .bg-slate-100,
+.theme-crimson .bg-slate-100,
+.theme-neon .bg-slate-100,
+.theme-cyber .bg-slate-100,
+.theme-aurora .bg-slate-100,
+.theme-contrast .bg-slate-100 {
+  background-color: var(--cp-surface-soft) !important;
+}
+
+.theme-midnight .bg-slate-200,
+.theme-crimson .bg-slate-200,
+.theme-neon .bg-slate-200,
+.theme-cyber .bg-slate-200,
+.theme-aurora .bg-slate-200,
+.theme-contrast .bg-slate-200 {
+  background-color: var(--cp-surface-muted) !important;
+}
+
+
+/* =========================================================
+   GRAY BACKGROUNDS
+========================================================= */
+
+.theme-midnight .bg-gray-50,
+.theme-crimson .bg-gray-50,
+.theme-neon .bg-gray-50,
+.theme-cyber .bg-gray-50,
+.theme-aurora .bg-gray-50,
+.theme-contrast .bg-gray-50 {
+  background-color: var(--cp-bg) !important;
+}
+
+.theme-midnight .bg-gray-100,
+.theme-crimson .bg-gray-100,
+.theme-neon .bg-gray-100,
+.theme-cyber .bg-gray-100,
+.theme-aurora .bg-gray-100,
+.theme-contrast .bg-gray-100 {
+  background-color: var(--cp-surface-soft) !important;
+}
+
+.theme-midnight .bg-gray-200,
+.theme-crimson .bg-gray-200,
+.theme-neon .bg-gray-200,
+.theme-cyber .bg-gray-200,
+.theme-aurora .bg-gray-200,
+.theme-contrast .bg-gray-200 {
+  background-color: var(--cp-surface-muted) !important;
+}
+
+
+/* =========================================================
+   BORDERS
+========================================================= */
+
+.theme-midnight .border-slate-100,
+.theme-crimson .border-slate-100,
+.theme-neon .border-slate-100,
+.theme-cyber .border-slate-100,
+.theme-aurora .border-slate-100,
+.theme-contrast .border-slate-100,
+
+.theme-midnight .border-slate-200,
+.theme-crimson .border-slate-200,
+.theme-neon .border-slate-200,
+.theme-cyber .border-slate-200,
+.theme-aurora .border-slate-200,
+.theme-contrast .border-slate-200,
+
+.theme-midnight .border-gray-100,
+.theme-crimson .border-gray-100,
+.theme-neon .border-gray-100,
+.theme-cyber .border-gray-100,
+.theme-aurora .border-gray-100,
+.theme-contrast .border-gray-100,
+
+.theme-midnight .border-gray-200,
+.theme-crimson .border-gray-200,
+.theme-neon .border-gray-200,
+.theme-cyber .border-gray-200,
+.theme-aurora .border-gray-200,
+.theme-contrast .border-gray-200 {
+  border-color: var(--cp-border) !important;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.theme-midnight header,
+.theme-crimson header,
+.theme-neon header,
+.theme-cyber header,
+.theme-aurora header,
+.theme-contrast header {
+  background-color: var(--cp-header) !important;
+  border-color: var(--cp-border) !important;
+}
+
+
+/* =========================================================
+   FORM CONTROLS
+========================================================= */
+
+.theme-midnight input,
+.theme-midnight textarea,
+.theme-midnight select,
+.theme-crimson input,
+.theme-crimson textarea,
+.theme-crimson select,
+.theme-neon input,
+.theme-neon textarea,
+.theme-neon select,
+.theme-cyber input,
+.theme-cyber textarea,
+.theme-cyber select,
+.theme-aurora input,
+.theme-aurora textarea,
+.theme-aurora select,
+.theme-contrast input,
+.theme-contrast textarea,
+.theme-contrast select {
+  background-color: var(--cp-input-bg);
+  color: var(--cp-input-text);
+  border-color: var(--cp-border);
+}
+
+
+.theme-midnight input::placeholder,
+.theme-midnight textarea::placeholder,
+.theme-crimson input::placeholder,
+.theme-crimson textarea::placeholder,
+.theme-neon input::placeholder,
+.theme-neon textarea::placeholder,
+.theme-cyber input::placeholder,
+.theme-cyber textarea::placeholder,
+.theme-aurora input::placeholder,
+.theme-aurora textarea::placeholder,
+.theme-contrast input::placeholder,
+.theme-contrast textarea::placeholder {
+  color: var(--cp-placeholder);
+}
+
+
+/* =========================================================
+   COMMON CIVIC SURFACES
+========================================================= */
+
+.civic-surface {
+  background-color: var(--cp-surface);
+  color: var(--cp-text);
+  border: 1px solid var(--cp-border);
+  box-shadow: var(--cp-card-shadow);
+}
+
+
+.civic-surface-raised {
+  background-color: var(--cp-surface-raised);
+  color: var(--cp-text);
+  border: 1px solid var(--cp-border);
+}
+
+
+.civic-surface-soft {
+  background-color: var(--cp-surface-soft);
+  color: var(--cp-text);
+  border: 1px solid var(--cp-border);
+}
+
+
+/* =========================================================
+   GLASS
+========================================================= */
+
+.civic-glass {
+  background:
+    color-mix(
+      in srgb,
+      var(--cp-surface) 82%,
+      transparent
+    );
+
+  color: var(--cp-text);
+
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--cp-border) 85%,
+      transparent
+    );
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 20px 70px
+    color-mix(
+      in srgb,
+      var(--cp-glow) 35%,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   PRIMARY
+========================================================= */
+
+.civic-primary {
+  color: var(--cp-primary);
+}
+
+
+.civic-primary-bg {
+  background-color: var(--cp-primary);
+  color: #ffffff;
+}
+
+
+.civic-gradient {
+  background:
+    linear-gradient(
+      135deg,
+      var(--cp-primary),
+      var(--cp-secondary)
+    );
+}
+
+
+/* =========================================================
+   BUTTON SHINE
+========================================================= */
+
+.civic-button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+
+.civic-button::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 55%;
+  height: 100%;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition:
+    left 650ms ease;
+}
+
+
+.civic-button:hover::after {
+  left: 140%;
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.civic-card {
+  background-color: var(--cp-surface);
+  color: var(--cp-text);
+  border: 1px solid var(--cp-border);
+
+  box-shadow: var(--cp-card-shadow);
+
+  transition:
+    transform 250ms ease,
+    box-shadow 250ms ease,
+    border-color 250ms ease;
+}
+
+
+.civic-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 25px 75px
+    color-mix(
+      in srgb,
+      var(--cp-glow) 45%,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   ANIMATED BACKGROUND
+========================================================= */
+
+.civic-animated-bg {
+  position: relative;
+  overflow-x: hidden;
+}
+
+
+.civic-animated-bg::before,
+.civic-animated-bg::after {
+  content: "";
+
+  position: fixed;
+
+  width: 360px;
+  height: 360px;
+
+  border-radius: 999px;
+
+  filter: blur(100px);
+
+  opacity: 0.13;
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+
+.civic-animated-bg::before {
+  top: -170px;
+  left: -120px;
+
+  background: var(--cp-primary);
+
+  animation:
+    civicOrbOne
+    13s
+    ease-in-out
+    infinite;
+}
+
+
+.civic-animated-bg::after {
+  right: -120px;
+  bottom: -170px;
+
+  background: var(--cp-secondary);
+
+  animation:
+    civicOrbTwo
+    16s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes civicOrbOne {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate3d(80px, 50px, 0)
+      scale(1.2);
+  }
+}
+
+
+@keyframes civicOrbTwo {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate3d(-70px, -50px, 0)
+      scale(1.18);
+  }
+}
+
+
+/* =========================================================
+   CRIMSON SPECIAL EFFECT
+========================================================= */
+
+.theme-crimson body {
+  background:
+    radial-gradient(
+      circle at 85% 5%,
+      rgba(220, 38, 38, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(249, 115, 22, 0.08),
+      transparent 28%
+    ),
+    var(--cp-bg);
+}
+
+
+.theme-crimson .civic-alert {
+  animation:
+    civicAlertPulse
+    2.2s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes civicAlertPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 rgba(239, 68, 68, 0);
+  }
+
+  50% {
+    box-shadow:
+      0 0 35px rgba(239, 68, 68, 0.24);
+  }
+}
+
+
+/* =========================================================
+   NEON
+========================================================= */
+
+.theme-neon .civic-neon {
+  text-shadow:
+    0 0 12px rgba(168, 85, 247, 0.65),
+    0 0 30px rgba(236, 72, 153, 0.3);
+}
+
+
+/* =========================================================
+   CYBER GRID
+========================================================= */
+
+.theme-cyber .civic-cyber-grid {
+  background-image:
+    linear-gradient(
+      rgba(16, 185, 129, 0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(16, 185, 129, 0.07) 1px,
+      transparent 1px
+    );
+
+  background-size: 30px 30px;
+}
+
+
+/* =========================================================
+   AURORA
+========================================================= */
+
+.theme-aurora body {
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(34, 211, 238, 0.14),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(168, 85, 247, 0.15),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(16, 185, 129, 0.1),
+      transparent 30%
+    ),
+    var(--cp-bg);
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.civic-status-pending {
+  color: var(--cp-warning);
+}
+
+
+.civic-status-progress {
+  color: var(--cp-primary);
+}
+
+
+.civic-status-resolved {
+  color: var(--cp-success);
+}
+
+
+.civic-status-critical {
+  color: var(--cp-danger);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+* {
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    var(--cp-primary)
+    var(--cp-surface-soft);
+}
+
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: var(--cp-surface-soft);
+}
+
+
+::-webkit-scrollbar-thumb {
+  background:
+    linear-gradient(
+      var(--cp-primary),
+      var(--cp-secondary)
+    );
+
+  border-radius: 999px;
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+  background: var(--cp-primary);
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline:
+    2px solid var(--cp-primary);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
