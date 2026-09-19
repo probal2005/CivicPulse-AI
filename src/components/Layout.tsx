@@ -458,7 +458,7 @@ export function Layout({
     "
   >
     <img
-      src="public/images/civicpulse-icon.png"
+      src="/images/civicpulse-icon.png"
       alt="CivicPulse AI"
       className="
         h-full
