@@ -424,84 +424,81 @@ export function Layout({
 
 
           {/* =================================================
-              LOGO
-          ================================================= */}
+    LOGO
+================================================= */}
 
-          <Link
-            to="/"
-            onClick={() => {
-              setMenuOpen(false);
-              setProfileOpen(false);
-              setThemeOpen(false);
-            }}
-            className="
-              group
-              flex
-              items-center
-              gap-3
-            "
-          >
+<Link
+  to="/"
+  onClick={() => {
+    setMenuOpen(false);
+    setProfileOpen(false);
+    setThemeOpen(false);
+  }}
+  className="
+    group
+    flex
+    items-center
+    gap-3
+  "
+>
+  {/* Logo Icon */}
+  <div
+    className="
+      flex
+      h-11
+      w-11
+      shrink-0
+      items-center
+      justify-center
+      overflow-hidden
+      rounded-2xl
+      transition
+      duration-300
+      group-hover:scale-105
+    "
+  >
+    <img
+      src="/images/civicpulse-icon.png"
+      alt="CivicPulse AI"
+      className="
+        h-full
+        w-full
+        object-contain
+      "
+    />
+  </div>
 
-            <div
-              className="
-                civic-button
-                flex
-                h-11
-                w-11
-                items-center
-                justify-center
-                rounded-2xl
-                bg-gradient-to-br
-                from-blue-600
-                to-cyan-500
-                text-xl
-                font-black
-                text-white
-                shadow-lg
-                shadow-blue-200
-                transition
-                duration-300
-                group-hover:scale-105
-              "
-            >
-              C
-            </div>
+  {/* Brand Text */}
+  <div className="hidden sm:block">
 
+    <div
+      className="
+        text-lg
+        font-black
+        leading-none
+        text-slate-900
+      "
+    >
+      CivicPulse{" "}
 
-            <div className="hidden sm:block">
+      <span className="text-cyan-500">
+        AI
+      </span>
+    </div>
 
-              <div
-                className="
-                  text-lg
-                  font-black
-                  leading-none
-                  text-slate-900
-                "
-              >
+    <p
+      className="
+        mt-1
+        text-[11px]
+        font-medium
+        text-slate-500
+      "
+    >
+      Smarter Cities • Stronger Communities
+    </p>
 
-                CivicPulse{" "}
-
-                <span className="text-cyan-500">
-                  AI
-                </span>
-
-              </div>
-
-
-              <p
-                className="
-                  mt-1
-                  text-[11px]
-                  font-medium
-                  text-slate-500
-                "
-              >
-                Smarter Cities • Stronger Communities
-              </p>
-
-            </div>
-
-          </Link>
+  </div>
+</Link>
 
 
           {/* =================================================
